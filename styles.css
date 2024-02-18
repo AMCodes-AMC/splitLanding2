@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.split-landing{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    color: white;
+    transition: 0.7s linear;
+    overflow: hidden;
+}
+.split-landing .left, .split-landing .right{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: 0.7s linear;
+}
+.split-landing .left{
+    grid-column: 1/2;
+    background-color: darkcyan;
+}
+.split-landing .right{
+    grid-column: 2/3;
+    background-color: dodgerblue;
+    left: 0;
+    top: 0;
+}
+
+.split-landing .outer{
+    width: 50vw;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+.split-landing .layer{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    position: relative;
+    z-index: 1;
+}
+.split-landing .right .outer{
+    margin-left: auto;
+}
+.split-landing .outer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    opacity: 0.5;
+    transition: 0.7s linear;
+}
+.split-landing .outer img:hover{
+    opacity: 1;
+}
+.split-landing .left .outer img{
+    left: 0;
+}
+.split-landing .right .outer img{
+    right: 0
+}
+.split-landing .outer h2{
+    transition: 0.7s;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+.split-landing .inner{
+    display: none;
+    text-align: left;
+    padding: 20px;
+}
+.split-landing .inner button{
+    background-color: firebrick;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+.split-landing .inner h2, 
+.split-landing .inner p,
+.split-landing .inner ul{
+    margin-bottom: 10px;
+}
+.split-landing .inner ul{
+    list-style: none;
+    position: relative;
+    margin-top: 20px;
+}
+.split-landing ul li{
+    margin-bottom: 20px;
+}
+.split-landing .inner ul li::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    border-right: 2px solid firebrick;
+    border-bottom: 2px solid firebrick;
+    transform: rotateZ(-45deg);
+}
+.split-landing .label{
+    position: absolute;
+    transition: 0.7s linear;
+}
+.split-landing .left .label{
+    right: 20px;
+}
+.split-landing .right .label{
+    left: 20px;
+}
+.split-landing .back{
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.7s;
+    opacity: 0;
+    z-index: 1;
+}
+.split-landing .back:hover .arrow{
+    background-color: white;
+    color: firebrick;
+}
+.split-landing .back .arrow{
+    font-size: 20px;
+    padding: 2px 7px;
+    background-color: firebrick;
+    border-radius: 50%;
+}
+.split-landing .left .back{
+    left: 20px
+}
+.split-landing .right .back{
+    right: 20px
+}
+@media (max-width: 576px) {
+    .split-landing{
+        grid-template-columns: none !important;
+        grid-template-rows: 50% 50%;
+    }
+    .split-landing .left, .split-landing .right{
+        flex-direction: column !important;
+        justify-content: center;
+    }
+    .split-landing .left{
+        grid-column: unset;
+        grid-row: 1/2;
+    }
+    .split-landing .right{
+        grid-column: unset;
+        grid-row: 2/3;
+    }
+    .split-landing .outer{
+        width: 100%;
+        height: 100%;
+    }
+    .split-landing .inner{
+        overflow-y: auto;
+    }
+}
